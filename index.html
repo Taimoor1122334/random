@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            max-width: 1920px;
+            margin: 0 auto;
+           padding:0px 0px 80px 0px;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .container > div:first-child {
+    position: absolute; /* take out of normal flow */
+    top: 170px;
+    left: 0;
+    width: 100%;
+    z-index: -1; /* behind other elements */
+}
+        
+         @media (max-width: 1600px) {
+            .container {
+               padding: 50px 0px 50px 0px;
+            }
+        }
+
+        
+        @media (max-width: 768px) {
+            .container {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+        
+        .container img {
+            width: 100%;
+            margin: 0 auto;
+            z-index: 0;
+            
+        }
+
+        /* --------first-row----------- */
+        .firstrow {
+            display: flex;
+            gap: 120px;
+            margin-top: 50px;
+            margin-left: 150px;
+        }
+        .seprate1 {
+            text-align: center;
+            margin-top: 50px;
+            max-width: 438px;
+            position: relative;
+        
+        }
+        .drop-line-1{
+            width: 195px;
+            margin-top: 50px;
+            position: relative;
+        }
+         .drop-line-1 img {
+            position: absolute;
+            bottom: 1px;
+            right: -200px;
+         }
+
+        .seprate2{
+            text-align: center;
+            max-width: 710px;
+            position: relative;
+        }
+        .seprate2 p{
+            position: absolute;
+
+        }
+        /* --------first-row----------- */
+
+        /* --------Second-row----------- */
+  .secondrow {
+            display: flex;
+            gap: 140px;
+            text-align: center;
+            
+            position: absolute;
+            top: 142%;
+        }
+        .seprate21 {
+            text-align: center;
+            
+            max-width: 476px;
+        }
+        .drop-line-3{
+            width: 135px;
+    
+            position: relative;
+        }
+         .drop-line-3 img {
+            position: absolute;
+            bottom: 83px;
+            right: -150px;
+         }
+
+          .drop-line-4{
+            width: 155px;
+    
+            position: relative;
+        }
+         .drop-line-4 img {
+            position: absolute;
+            bottom: 93px;
+            right: -220px;
+         }
+
+        .seprate22{
+            text-align: center;
+            max-width: 540px;
+        }
+
+        .seprate22 img{
+            margin-top: 30px;
+
+        }
+
+
+
+        /* --------Second-row----------- */
+
+        /*------------third-row----------- */
+
+         .thirdrow {
+            display: flex;
+            gap: 140px;
+            text-align: center;
+            
+            position: absolute;
+            top: 265%;
+        }
+        .seprate31 {
+            text-align: center;
+            
+            max-width: 710px;
+        }
+        .drop-line-5{
+            width: 130px;
+    
+            position: relative;
+        }
+         .drop-line-5 img {
+            position: absolute;
+            bottom: 63px;
+            right: -150px;
+         }
+
+        .seprate32 {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.seprate32 img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.center-text {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    font-size: 20px;
+    font-weight: 600;
+    width: 90%;
+}
+
+        /*------------third-row----------- */
+        
+        /*------------fourth-row----------- */
+
+            .fourthrow {
+                display: flex;
+                gap: 140px;
+                text-align: center;
+                
+                position: absolute;
+                top: 400%;
+                left: 30%;
+                
+            }
+            .seprate41 img{
+                text-align: center;
+                width: 1131px;
+               
+            }
+
+        /*------------fourth-row----------- */
+
+        @media (max-width: 1800px) {
+            .secondrow {
+           
+            top: 140%;
+        }
+         
+        }
+        
+        @media (max-width: 3000px) {
+            .secondrow {
+           
+            top: 144%;
+        }
+         
+        }
+
+    </style>
+</head>
+<body>
+    
+    <section>
+        <div class="container">
+            
+            <div>
+                <img src="Untitled-5.svg" alt="svg image" >
+            </div>
+            <!---------------1st row------------- -->
+            <div class="firstrow">
+                <div class="seprate1">
+                    <img src="img_storyM-clinic.webp" alt=" img_storyM-clinic">
+                    <h3>Open Family clinic</h3>
+                    <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, eaque. Natus eaque totam illo, ipsam maiores inventore quidem possimus. Magni quo animi, itaque a facere culpa labore nemo voluptatibus perferendis?</p>
+                </div>
+
+                <!-- -----down-line----- -->
+                 <div class="drop-line-1">
+                    <img src="Untitled-4.svg" alt="svg image" >
+                 </div>
+
+                 <div class="seprate2">
+                    <img src="tybwork 2.png" alt="tybwork">
+                       <h3>Open Family clinic</h3>
+                    <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, eaque. Natus eaque totam illo, ipsam maiores inventore quidem possimus. Magni quo animi, itaque a facere culpa labore nemo voluptatibus perferendis?</p>
+                
+                 </div>
+            </div>
+            <!---------------1st row---------------->
+
+            <!---------------2nd row---------------->
+
+              <div class="secondrow">
+
+                <div class="drop-line-3">
+                    <img src="Untitled-3.svg" alt="svg image" >
+                 </div>
+                <div class="seprate21">
+                    <img src="img_storyM-homeuse.webp" alt=" img_storyM-clinic">
+                    <h3>Open Family clinic</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, eaque. Natus eaque totam illo, ipsam maiores inventore quidem possimus. Magni quo animi, itaque a facere culpa labore nemo voluptatibus perferendis?</p>
+                </div>
+
+                <!-- -----down-line----- -->
+                 <div class="drop-line-4">
+                    <img src="Untitled-4.svg" alt="svg image" >
+                 </div>
+
+                 <div class="seprate22">
+                    <img src="img_storyM-50milionuses.webp" alt="tybwork">
+                       <h3>Open Family clinic</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, eaque. Natus eaque totam illo, ipsam maiores inventore quidem possimus. Magni quo animi, itaque a facere culpa labore nemo voluptatibus perferendis?</p>
+                
+                 </div>
+            </div>
+            <!---------------2nd row---------------->
+
+
+            <!---------------3rd row---------------->
+ <div class="thirdrow">
+
+                <div class="drop-line-5">
+                    <img src="Untitled-1.svg" alt="svg image" >
+                 </div>
+                <div class="seprate31">
+                    <img src="img_storyM-emily-video.webp" alt=" img_storyM-clinic">
+                    <h3>Open Family clinic</h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, eaque. Natus eaque totam illo, ipsam maiores inventore quidem possimus. Magni quo animi, itaque a facere culpa labore nemo voluptatibus perferendis?</p>
+                </div>
+
+                
+                <div class="seprate32">
+    <img src="Group 1618873374.svg" alt="">
+
+    <p class="center-text">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, eaque. 
+        Natus eaque totam illo, ipsam maiores inventore quidem possimus.Lorem ipsum dolor sit
+    </p>
+    <h3>
+        ...and beyond
+    </h3>
+</div>
+            </div>
+
+
+            <!---------------3rd row---------------->
+
+            <!---------------4th row---------------->
+
+            <div class="fourthrow">
+
+               
+                <div class="seprate41">
+                    <img src="tyb work.png" alt=" img_storyM-clinic">
+                  </div>
+
+                
+            
+            </div>
+
+
+            <!---------------4th row---------------->
+
+
+
+
+
+        
+        </div>
+    </section>
+
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="127" height="268" viewBox="0 0 127 268">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #27a9e1;
+        stroke-linecap: round;
+        stroke-width: 3px;
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: #27a9e1;
+      }
+    </style>
+  </defs>
+  <path id="Rectangle_862_copy_3" data-name="Rectangle 862 copy 3" class="cls-1" d="M118,261H38A30,30,0,0,1,8,231V7"/>
+  <circle id="Ellipse_885_copy_4" data-name="Ellipse 885 copy 4" class="cls-2" cx="7.5" cy="7.5" r="7.5"/>
+  <circle id="Ellipse_885_copy_4-2" data-name="Ellipse 885 copy 4" class="cls-2" cx="119.5" cy="260.5" r="7.5"/>
+</svg>
