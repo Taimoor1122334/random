@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1601" height="1959" viewBox="0 0 1601 1959">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #27a9e1;
+        stroke-width: 3px;
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        stroke-linecap: round;
+      }
+
+      .cls-3 {
+        fill: #27a9e1;
+      }
+    </style>
+  </defs>
+  <path id="Rectangle_857_copy" data-name="Rectangle 857 copy" class="cls-1" d="M330,8l1239.46-.5a30.006,30.006,0,0,1,30,30v523a30.006,30.006,0,0,1-30,30L443,591"/>
+  <path id="Rectangle_857_copy_3" data-name="Rectangle 857 copy 3" class="cls-1" d="M1119,1234l450.46-.5a30,30,0,0,1,30,30v663a30,30,0,0,1-30,30L1322,1957"/>
+  <path id="Rectangle_857_copy_2" data-name="Rectangle 857 copy 2" class="cls-1" d="M1271,1233.5L32,1234a29.983,29.983,0,0,1-29.989-29.98V621.476A29.983,29.983,0,0,1,32,591.5l638-.5"/>
+  <path id="Rectangle_862_copy_2" data-name="Rectangle 862 copy 2" class="cls-2" d="M1027,802H895a30,30,0,0,1-30-30V590"/>
+  <circle id="Ellipse_885_copy_3" data-name="Ellipse 885 copy 3" class="cls-3" cx="864.5" cy="590.5" r="7.5"/>
+  <circle id="Ellipse_885_copy_2" data-name="Ellipse 885 copy 2" class="cls-3" cx="1024.5" cy="801.5" r="7.5"/>
+  <path id="Rectangle_862_copy" data-name="Rectangle 862 copy" class="cls-2" d="M187,802H88a30,30,0,0,1-30-30V590"/>
+  <circle class="cls-3" cx="57.5" cy="590.5" r="7.5"/>
+  <circle id="Ellipse_885_copy" data-name="Ellipse 885 copy" class="cls-3" cx="187.5" cy="801.5" r="7.5"/>
+  <path id="Rectangle_862_copy_3" data-name="Rectangle 862 copy 3" class="cls-2" d="M168,1487H88a30,30,0,0,1-30-30V1233"/>
+  <circle id="Ellipse_885_copy_4" data-name="Ellipse 885 copy 4" class="cls-3" cx="57.5" cy="1233.5" r="7.5"/>
+  <circle id="Ellipse_885_copy_4-2" data-name="Ellipse 885 copy 4" class="cls-3" cx="169.5" cy="1486.5" r="7.5"/>
+  <path class="cls-2" d="M852,257H708a30,30,0,0,1-30-30V7"/>
+  <circle class="cls-3" cx="677.5" cy="7.5" r="7.5"/>
+  <circle id="Ellipse_883_copy" data-name="Ellipse 883 copy" class="cls-3" cx="850.5" cy="256.5" r="7.5"/>
+</svg>
