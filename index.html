@@ -5,43 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .animate-path {
-  stroke-dasharray: 1000;
-  stroke-dashoffset: 1000;
-  transition: stroke-dashoffset 2s ease;
+                .animate-path {
+    /* dash values are initialized in JS (per-path lengths) */
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
 }
 
-/* When visible */
-.animate-path.visible {
-  stroke-dashoffset: 0;
-}
-
-/* Circles fade in */
+/* Circles: start slightly above and invisible; slide down and fade in when visible */
 .animate-circle {
-  opacity: 0;
-  transition: opacity 1.2s ease;
+    opacity: 0;
+    transform: translateY(-18px);
+    will-change: opacity, transform;
 }
 
 .animate-circle.visible {
-  opacity: 1;
+    opacity: 1;
+    transform: translateY(0);
 }
         .container {
-            max-width: clamp(53.313rem, 82vw + 1rem, 100rem);
+            max-width: 1200px; /* adjust this to shorten container */
             margin: 0 auto;
             box-sizing: border-box;
             position: relative;
+            overflow-x: hidden; /* prevent horizontal overflow when svg is large */
         }
+
+        /* Keep the SVG wrapper centered and let the SVG scale to container width */
         .container > div:first-child {
-    position: absolute; /* take out of normal flow */
-    top: 195px;
-    left: 0;
-    width: 100%;
-    z-index: -1; /* behind other elements */
-}
+            position: absolute;
+            top: 195px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 100%;
+            z-index: -1; /* behind other elements */
+            pointer-events: none; /* allow clicks through the SVG */
+        }
+
+        /* Make any SVG inside the container scale to fit the container width */
+        .container svg {
+            width: 100%;
+            height: auto;
+            display: block;
+            max-width: 100%;
+        }
         
         
         .container img {
-            width: 100%;
+            
             margin: 0 auto;
             z-index: 0;
             
@@ -51,15 +62,19 @@
         .firstrow {
             display: flex;
             gap: 175px;
+           
             margin-top: 50px;
-            margin-left: 150px;
+            /* margin-left: 150px; */
+            margin-left: 50px;
         }
         .seprate1 {
             text-align: center;
             margin-top: 50px;
-            width: 438px;
             position: relative;
-        
+        }
+        .seprate1 img{
+ /* width: 438px; */
+            max-width: 338px;
         }
       .seprate1 p{
             position: absolute;
@@ -67,8 +82,12 @@
 
         .seprate2{
             text-align: center;
-            width: 710px;
+         
             position: relative;
+        }
+        .seprate2 img{
+               /* width: 710px; */
+            width: 550px;
         }
         .seprate2 p{
             position: absolute;
@@ -78,15 +97,24 @@
         /* --------Second-row----------- */
   .secondrow {
             display: flex;
-            gap: 270px;
+            /* gap: 270px; */
+            gap: 170px;
             text-align: center;
-            margin-left: 150px;
-            margin-top: 210px;
+            /* margin-left: 150px; */
+            margin-left: 120px;
+            /* margin-top: 210px; */
+            margin-top: 130px;
         }
         .seprate21 {
             text-align: center;
             position: relative;
-            max-width: 476px;
+            /* max-width: 476px; */
+            max-width: 376px;
+        }
+
+        .seprate21 img{
+            /* max-width: 476px; */
+            max-width: 376px;
         }
         .seprate21 p{
             position: absolute;
@@ -94,8 +122,12 @@
 
         .seprate22{
             text-align: center;
-            max-width: 540px;
             position: relative;
+        }
+
+        .seprate22 img{
+            /* max-width: 540px; */
+            max-width: 440px;
         }
         .seprate22 p{
             position: absolute;
@@ -114,24 +146,36 @@
 
          .thirdrow {
             display: flex;
-            gap: 100px;
+            /* gap: 100px; */
+            gap: 20px;
             text-align: center;
-            margin-left: 120px;
-          margin-top: 240px;
+            /* margin-left: 120px; */
+            margin-left: 60px;
+          /* margin-top: 240px; */
+          margin-top: 150px;
         }
         .seprate31 {
             text-align: center;
-            
-            max-width: 710px;
+        
+        }
+
+        .seprate31 img{
+                
+            /* max-width: 710px; */
+            max-width: 510px;
         }
     
 
         .seprate32 {
     position: relative;
     width: 100%;
-    max-width: 600px;
+   
     text-align: center;
     overflow: hidden;
+}
+.seprate32 img{
+     /* max-width: 600px; */
+    max-width: 450px;
 }
 
 .seprate32 img {
@@ -160,36 +204,21 @@
                
                 text-align: center;
                 
-                margin-top: 180px;
-                margin-left: 250px;
+                /* margin-top: 180px; */
+                margin-top: 110px;
+                /* margin-left: 250px; */
+                margin-left: 160px;
                 
             }
             .seprate41 img{
                 text-align: center;
-                width: 1131px;
+                width: 800px;
                
             }
 
         /*------------fourth-row----------- */
 
-         @media (max-width: 1900px) {
-       .seprate1 {
-          
-            width: 400px;
-          
-        }
-     
-        .seprate2{
-            
-            width: 660px;
-          
-        }
-        .firstrow {
-           
-            gap: 150px;
-           
-        }
-    } 
+        
     
 
     </style>
@@ -201,48 +230,50 @@
             
                         <div>
                                 <!-- inlined SVG so JS/CSS can target internal elements for scroll-triggered animation -->
-                                <svg xmlns="http://www.w3.org/2000/svg" width="1601" height="1959" viewBox="0 0 1601 1959">
-                                    <defs>
-                                        <style>
-                                            .cls-1, .cls-2 {
-                                                fill: none;
-                                                stroke: #27a9e1;
-                                                stroke-width: 3px;
-                                                fill-rule: evenodd;
-                                            }
+                                <svg id="wires" xmlns="http://www.w3.org/2000/svg" width="1601" height="1959" viewBox="0 0 1601 1959">
+        <defs>
+            <style>
+                .rectangle,
+                .arm {
+                    fill: none;
+                    stroke: #27a9e1;
+                    stroke-width: 3px;
+                    fill-rule: evenodd;
+                    stroke-linecap: round;
+                }
 
-                                            .cls-2 {
-                                                stroke-linecap: round;
-                                            }
+                .ellipse {
+                    fill: #27a9e1;
+                }
+            </style>
+        </defs>
+        <!-- <path id="Rectangle_1" class="rectangle" d="M330,8l1239.46-.5a30.006,30.006,0,0,1,30,30v523a30.006,30.006,0,0,1-30,30L443,591" />
+        <path id="Rectangle_2" class="rectangle" d="M670,591 l-638,0.5 A29.983,29.983,0,0,0,2.011,621.476 V1204.02 a29.983,29.983,0,0,0,29.989,29.98 L1271,1233.5" />
+        <path id="Rectangle_3" class="rectangle" d="M1119,1234l450.46-.5a30,30,0,0,1,30,30v663a30,30,0,0,1-30,30L1322,1957" /> -->
+        <path id="combined-rectangles" class="rectangle"
+            d="M 330 8 L 1569.46 8 A 30.006 30.006 0 0 1 1599.46 38 V 561 A 30.006 30.006 0 0 1 1569.46 591 L 32 592 A 29.983 29.983 0 0 0 2.011 621.476 V 1204.02 A 29.983 29.983 0 0 0 32 1234 L 1570 1235 A 30 30 0 0 1 1599.46 1263.5 V 1926.5 A 30 30 0 0 1 1569.46 1956.5 L 1322 1957" />
+        <!-- Arms/Ellipses -->
+        <path id="Arm_1" class="arm" d="M678,7 V227 a30 30 30 0 0 30 30 H852" />
+        <circle id="Arm_1_ellipse_1" class="ellipse" cx="677.5" cy="7.5" r="7.5" />
+        <circle id="Arm_1_ellipse_2" class="ellipse" cx="850.5" cy="256.5" r="7.5" />
+        <path id="Arm_2" class="arm" d="M865,590 V772 a30 30 30 0 0 30 30 H1027" />
+        <circle id="Arm_2_ellipse_1" class="ellipse" cx="864.5" cy="590.5" r="7.5" />
+        <circle id="Arm_2_ellipse_2" class="ellipse" cx="1024.5" cy="801.5" r="7.5" />
+        <path id="Arm_3" class="arm" d="M58,590 V772 a30 30 30 0 0 30 30 H187" />
+        <circle id="Arm_3_ellipse_1" class="ellipse" cx="57.5" cy="590.5" r="7.5" />
+        <circle id="Arm_3_ellipse_2" class="ellipse" cx="187.5" cy="801.5" r="7.5" />
+        <path id="Arm_4" class="arm" d="M58,1233 V1457 a30 30 30 0 0 30 30 H168" />
+        <circle id="Arm_4_ellipse_1" class="ellipse" cx="57.5" cy="1233.5" r="7.5" />
+        <circle id="Arm_4_ellipse_2" class="ellipse" cx="169.5" cy="1486.5" r="7.5" />
+    </svg>
 
-                                            .cls-3 {
-                                                fill: #27a9e1;
-                                            }
-                                        </style>
-                                    </defs>
-                                    <path  id="Rectangle_857_copy" data-name="Rectangle 857 copy" class="cls-1  animate-path" d="M330,8l1239.46-.5a30.006,30.006,0,0,1,30,30v523a30.006,30.006,0,0,1-30,30L443,591"/>
-                                    <path id="Rectangle_857_copy_3" data-name="Rectangle 857 copy 3" class="cls-1 animate-path" d="M1119,1234l450.46-.5a30,30,0,0,1,30,30v663a30,30,0,0,1-30,30L1322,1957"/>
-                                    <path id="Rectangle_857_copy_2" data-name="Rectangle 857 copy 2" class="cls-1 animate-path" d="M1271,1233.5L32,1234a29.983,29.983,0,0,1-29.989-29.98V621.476A29.983,29.983,0,0,1,32,591.5l638-.5"/>
-                                    <path id="Rectangle_862_copy_2" data-name="Rectangle 862 copy 2" class="cls-2 animate-path" d="M1027,802H895a30,30,0,0,1-30-30V590"/>
-                                    <circle id="Ellipse_885_copy_3" data-name="Ellipse 885 copy 3" class="cls-3 animate-circle" cx="864.5" cy="590.5" r="7.5"/>
-                                    <circle id="Ellipse_885_copy_2" data-name="Ellipse 885 copy 2" class="cls-3 animate-circle" cx="1024.5" cy="801.5" r="7.5"/>
-                                    <path id="Rectangle_862_copy" data-name="Rectangle 862 copy" class="cls-2 animate-path" d="M187,802H88a30,30,0,0,1-30-30V590"/>
-                                    <circle class="cls-3" cx="57.5" cy="590.5" r="7.5"/>
-                                    <circle id="Ellipse_885_copy" data-name="Ellipse 885 copy" class="cls-3 animate-circle" cx="187.5" cy="801.5" r="7.5"/>
-                                    <path id="Rectangle_862_copy_3" data-name="Rectangle 862 copy 3" class="cls-2 animate-path" d="M168,1487H88a30,30,0,0,1-30-30V1233"/>
-                                    <circle id="Ellipse_885_copy_4" data-name="Ellipse 885 copy 4" class="cls-3 animate-circle" cx="57.5" cy="1233.5" r="7.5"/>
-                                    <circle id="Ellipse_885_copy_4-2" data-name="Ellipse 885 copy 4" class="cls-3 animate-circle" cx="169.5" cy="1486.5" r="7.5"/>
-                                    <path class="cls-2 animate-path" d="M852,257H708a30,30,0,0,1-30-30V7"/>
-                                    <circle class="cls-3" cx="677.5" cy="7.5" r="7.5"/>
-                                    <circle id="Ellipse_883_copy" data-name="Ellipse 883 copy" class="cls-3 animate-circle" cx="850.5" cy="256.5" r="7.5"/>
-                                </svg>
                         </div>
             <!---------------1st row------------- -->
             <div class="firstrow">
                 <div class="seprate1">
                     <img src="img_storyM-clinic.webp" alt=" img_storyM-clinic">
                     <h3>Open Family clinic</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis itaque libero quos in temporibus, repellat, porro labore aut maxime impedit voluptatibus alias ducimus quis soluta animi beatae incidunt asperiores quisquam. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos autem animi fugit quis beatae ullam illum quam expedita, quia itaque cum maiores sunt natus reiciendis illo, vero quibusdam non praesentium? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, eaque. Natus eaque totam illo, ipsam maiores inventore quidem possimus. Magni quo animi, itaque a facere culpa labore nemo voluptatibus perferendis?</p>
+                    <p> quia itaque cum maiores sunt natus reiciendis illo, vero quibusdam non praesentium? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, eaque. Natus eaque totam illo, ipsam maiores inventore quidem possimus. Magni quo animi, itaque a facere culpa labore nemo voluptatibus perferendis?</p>
                 </div>
 
               
@@ -330,62 +361,70 @@
     </section>
 
     <div style="height: 100vh; background-color: aqua;"></div>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    // flip this to true if you want the animation reversed (visible -> hidden on scroll)
-    const invert = false;
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
 
-    // initialize each path with its exact length and an initial offset
-    const paths = Array.from(document.querySelectorAll('.animate-path'));
-    paths.forEach((p, i) => {
-        const len = p.getTotalLength();
-        p.style.strokeDasharray = len;
-        // alternate direction: even index -> left-to-right, odd -> right-to-left
-        const startOffset = (i % 2 === 0) ? len : -len;
-        // store for later use
-        p.dataset.startOffset = startOffset;
-        p.dataset.len = len;
-        // if invert is true we start visible (offset 0) and will animate to startOffset on reveal
-        p.style.strokeDashoffset = invert ? 0 : startOffset;
-        p.style.transition = 'stroke-dashoffset 2s ease';
-    });
+        const mainPath = document.querySelector('#combined-rectangles');
+        const mainLength = mainPath.getTotalLength();
 
-    // initialize circles
-    const circles = document.querySelectorAll('.animate-circle');
-    circles.forEach(c => {
-        c.style.transition = 'opacity 1.2s ease';
-        c.style.opacity = invert ? 1 : 0; // if inverted, start visible
-        c.dataset.startOpacity = invert ? 0 : 1; // target opacity on reveal
-    });
+        const armTriggers = {
+            Arm_1: 0.05,
+            Arm_2: 0.385,
+            Arm_3: 0.506,
+            Arm_4: 0.616
+        };
 
-    // intersection observer triggers reveal
-    const observer = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const el = entry.target;
-                if (el.classList.contains('animate-path')) {
-                    const start = Number(el.dataset.startOffset || 0);
-                    if (invert) {
-                        // animate from 0 -> start (hide)
-                        el.style.strokeDashoffset = start;
-                    } else {
-                        // animate from start -> 0 (draw)
-                        el.style.strokeDashoffset = 0;
-                    }
-                } else if (el.classList.contains('animate-circle')) {
-                    el.style.opacity = el.dataset.startOpacity;
+        // dash-hide everything
+        const allPaths = document.querySelectorAll('.rectangle, .arm');
+        allPaths.forEach(p => {
+            const len = p.getTotalLength();
+            gsap.set(p, { strokeDasharray: len, strokeDashoffset: len });
+        });
+
+        // Create arm tweens (paused, reusable)
+        const armTweens = {};
+        Object.entries(armTriggers).forEach(([id]) => {
+            const arm = document.getElementById(id);
+            armTweens[id] = gsap.to(arm, {
+                strokeDashoffset: 0,
+                ease: "none",
+                paused: true,
+                duration: 0.6
+            });
+        });
+
+        // main combined animation
+        gsap.to(mainPath, {
+            strokeDashoffset: 0,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '#wires',
+                start: 'top 50%',
+                end: 'bottom bottom',
+                scrub: true,
+                onUpdate(self) {
+                    const prog = self.progress;
+
+                    Object.entries(armTriggers).forEach(([id, triggerProg]) => {
+                        const tween = armTweens[id];
+
+                        if (prog >= triggerProg) {
+                            // Forward: show arm based on how far past trigger we are
+                            const armProg = Math.min(1, (prog - triggerProg) / 0.1); // finish in 10% of main scroll
+                            tween.progress(armProg);
+                        } else {
+                            // Backward: hide arm
+                            tween.progress(0);
+                        }
+                    });
                 }
-                // mark and stop observing
-                el.classList.add('visible');
-                obs.unobserve(el);
             }
         });
-    }, { threshold: 0.2 });
 
-    document.querySelectorAll('.animate-path, .animate-circle').forEach(el => observer.observe(el));
-});
-</script>
 
+    </script>
 </body>
 </html>
