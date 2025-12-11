@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+
+@font-face {
+    font-family: 'Avenir Book';
+    src: url('font/Avenir/Avenir Book/Avenir Book.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Avenir Heavy';
+    src: url('font/Avenir/Avenir Heavy/Avenir Heavy.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
                 .animate-path {
     /* dash values are initialized in JS (per-path lengths) */
     stroke-dasharray: 1000;
@@ -22,8 +40,16 @@
     opacity: 1;
     transform: translateY(0);
 }
+.container h3{
+    font-size: 17px;
+    padding: 0 20px;
+    font-family: "Avenir Heavy", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+.container p{
+    font-family: "Avenir Book", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
         .container {
-            max-width: 1200px; /* adjust this to shorten container */
+            max-width: clamp(56.25rem, 83vw + 1rem, 75rem); /* adjust this to shorten container */
             margin: 0 auto;
             box-sizing: border-box;
             position: relative;
@@ -61,36 +87,44 @@
         /* --------first-row----------- */
         .firstrow {
             display: flex;
-            gap: 175px;
+            gap: 190px;
            
             margin-top: 50px;
             /* margin-left: 150px; */
             margin-left: 50px;
+          
         }
         .seprate1 {
             text-align: center;
             margin-top: 50px;
             position: relative;
+            /* max-width: 338px; */
+            max-width: clamp(17.063rem, 25vw + 1rem, 21.125rem);
         }
         .seprate1 img{
  /* width: 438px; */
-            max-width: 338px;
+            /* max-width: 338px; */
+            max-width: clamp(17.063rem, 25vw + 1rem, 21.125rem);
         }
       .seprate1 p{
             position: absolute;
+            margin-top: -5px;
         }
 
         .seprate2{
             text-align: center;
-         
+         /* width: 550px; */
+         max-width: clamp(28.75rem, 42vw + 1rem, 34.375rem);
             position: relative;
         }
         .seprate2 img{
                /* width: 710px; */
-            width: 550px;
+            /* width: 550px; */
+            max-width: clamp(28.75rem, 42vw + 1rem, 34.375rem);
         }
         .seprate2 p{
             position: absolute;
+            margin-top: -5px;
         }
         /* --------first-row----------- */
 
@@ -98,7 +132,7 @@
   .secondrow {
             display: flex;
             /* gap: 270px; */
-            gap: 170px;
+            gap: 180px;
             text-align: center;
             /* margin-left: 150px; */
             margin-left: 120px;
@@ -114,10 +148,12 @@
 
         .seprate21 img{
             /* max-width: 476px; */
-            max-width: 376px;
+            /* max-width: 385px; */
+            max-width: clamp(19.313rem, 26vw + 1rem, 24.063rem);
         }
         .seprate21 p{
             position: absolute;
+            margin-top: -5px;
         }
 
         .seprate22{
@@ -127,10 +163,12 @@
 
         .seprate22 img{
             /* max-width: 540px; */
-            max-width: 440px;
+            /* max-width: 430px; */
+            max-width: clamp(20rem, 29vw + 1rem, 26.875rem);
         }
         .seprate22 p{
             position: absolute;
+            margin-top: -5px;
         }
 
         .seprate22 img{
@@ -147,32 +185,41 @@
          .thirdrow {
             display: flex;
             /* gap: 100px; */
-            gap: 20px;
+            gap: 70px;
             text-align: center;
             /* margin-left: 120px; */
-            margin-left: 60px;
+            margin-left: 90px;
           /* margin-top: 240px; */
-          margin-top: 150px;
+          margin-top: 155px;
+         
         }
         .seprate31 {
             text-align: center;
-        
+        /* max-width: 525px; */
+        max-width: clamp(20rem, 36vw + 1rem, 32.813rem);
+         position: relative;
+        }
+        .seprate31 p{
+            position: absolute;
+            margin-top: -5px;
         }
 
         .seprate31 img{
                 
             /* max-width: 710px; */
-            max-width: 510px;
+            /* max-width: 525px; */
+            max-width: clamp(20rem, 36vw + 1rem, 32.813rem);;
         }
     
 
         .seprate32 {
     position: relative;
     width: 100%;
-   
+   max-width: 450px;
     text-align: center;
     overflow: hidden;
 }
+
 .seprate32 img{
      /* max-width: 600px; */
     max-width: 450px;
@@ -186,12 +233,12 @@
 
 .center-text {
     position: absolute;
-    top: 35%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%);
     
     font-size: 20px;
-    font-weight: 600;
+    
     width: 90%;
 }
 
@@ -205,21 +252,465 @@
                 text-align: center;
                 
                 /* margin-top: 180px; */
-                margin-top: 110px;
+                margin-top: 160px;
                 /* margin-left: 250px; */
                 margin-left: 160px;
                 
             }
             .seprate41 img{
                 text-align: center;
-                width: 800px;
+                max-width:  840px; 
+                width:clamp(37.5rem, 57vw + 1rem, 52.5rem);
                
             }
 
         /*------------fourth-row----------- */
 
-        
+       @media (max-width: 1380px) {
+       .firstrow {
     
+    margin-top: 45px;
+    margin-left: 33px;
+         
+      } 
+
+      .secondrow {
+    gap: 176px;
+    margin-top: 121px;
+}
+.thirdrow {
+   
+    gap: 57px;
+    text-align: center;
+  
+    margin-top: 143px;
+}
+    }
+
+       @media (max-width: 1340px) {
+       .firstrow {
+        gap: 171px;
+        margin-top: 38px
+         
+      } 
+
+      .secondrow {
+
+        gap: 153px;
+        margin-top: 117px;
+    
+}
+.thirdrow {
+   
+          gap: 51px;
+        margin-top: 135px;
+}
+    }
+    
+     @media (max-width: 1300px) {
+       .firstrow {
+                gap: 148px;
+        margin-top: 32px;
+         
+      } 
+
+      .secondrow {
+
+        gap: 145px;
+        margin-top: 112px;
+    
+}
+.thirdrow {
+   
+        gap: 36px;
+        margin-top: 131px;
+        margin-left: 72px;
+}
+.fourthrow {
+    
+    margin-top: 144px;
+    }
+}
+
+
+
+     @media (max-width: 1260px) {
+       .firstrow {
+                       gap: 109px;
+        margin-top: 32px;
+         
+      } 
+
+      .firstrow h3{
+        padding: 0 80px;
+      }
+
+      .secondrow {
+
+        gap: 152px;
+        margin-top: 80px;
+    
+}
+.thirdrow {
+   
+      gap: 36px;
+        margin-top: 125px;
+        margin-left: 72px;
+}
+.center-text{
+    font-size: 18px;
+}
+    }
+
+     @media (max-width: 1230px) {
+  
+.thirdrow {
+   
+        margin-top: 120px;
+        
+}
+.thirdrow .seprate31 h3{
+    padding: 0 60px !important;
+}
+.fourthrow{
+            margin-top: 126px;
+}
+    }
+
+     @media (max-width: 1200px) {
+       .firstrow {
+                
+        margin-top: 38px;
+         
+      } 
+
+
+      .secondrow {
+
+        margin-top: 77px;
+    
+}
+.thirdrow {
+   
+      gap: 29px;
+        margin-top: 116px;
+        margin-left: 55px;
+} 
+
+.fourthrow{
+
+        margin-top: 110px;
+    
+}
+    }
+
+
+      @media (max-width: 1150px) {
+     
+        .seprate2 h3{
+            padding: 0 80px !important;
+        }
+
+.container h3{
+    padding: 0;
+    font-size: 17px;
+}
+
+  .firstrow{
+            margin-top: 77px;
+        }
+        .seprate2 img {
+    
+    width: 440px;
+        }
+        .seprate2  {
+    
+    width: 440px;
+        }
+        .seprate1 {
+    margin-top: 20px;
+        }
+          .seprate22 img {
+    margin-top: 22px;
+        }
+        .seprate31 img {
+ 
+    width: 381px;
+}
+.thirdrow{
+    margin-top: 139px;
+    gap: 50;
+}
+.seprate32{
+    max-width: 340px;
+}
+    }
+
+    @media (max-width: 1135px){
+            .thirdrow {
+        margin-top: 119px;
+            }
+    }
+
+       @media (max-width: 1110px){
+                .firstrow {
+        margin-top: 69px;
+    }
+        .secondrow {
+        margin-top: 70px;
+    }
+        .seprate22 img {
+        margin-top: 31px;
+    }
+        .secondrow {
+        gap: 115px;
+    }
+    .center-text{
+        font-size: 16px;
+    }
+    .container p{
+        font-size: 14px !important;
+    }
+    }
+
+    @media (max-width:1080px){
+            .firstrow {
+        gap: 90px;
+    }
+    .secondrow {
+        margin-top: 57px;
+    }
+    }
+
+  @media (max-width:1170px){
+    .thirdrow {
+        margin-top: 110px;
+        gap: 53px;
+    }
+  }
+  @media (max-width:1070px){
+    .thirdrow {
+       
+        gap: 60px;
+    }
+  
+}
+
+@media (max-width:950px){
+  
+          .container > div:first-child {
+           display: none;
+        }
+
+        /* Make any SVG inside the container scale to fit the container width */
+       
+     
+}
+
+      @media (max-width:880px){
+  
+          .container > div:first-child {
+           display: none;
+        }
+
+        /* Make any SVG inside the container scale to fit the container width */
+       
+        .container{
+            padding: 30px 40px;
+        }
+        
+        .container img {
+            
+            margin: 0 auto;
+            z-index: 0;
+            
+        }
+        .container h3{
+            font-size: 19px;
+        }
+        .container p{
+            font-size: 16px !important;
+        }
+
+
+        /* --------first-row----------- */
+        .firstrow {
+            display: flex;
+            flex-direction: column;
+          gap: 0;
+            margin-left: 0;
+            margin-top: 0;
+          
+        }
+        .seprate1 {
+            text-align: center;
+           width: 100%;
+           max-width: 100%;
+        }
+        .seprate1 img{
+width: 100%;
+max-width: 100%;
+        }
+      .seprate1 p{
+            position: relative;
+            font-size: 16px;
+            margin-top: 0px;
+        }
+
+        .seprate2{
+            text-align: center;
+         width: 100%;
+         max-width: 100%;
+            margin-top: 20px;
+       
+            position: relative;
+        }
+        .seprate2 img{
+              width: 100%;
+              max-width: 100%;
+        }
+        .seprate2 p{
+            position: relative;
+            margin-top: 0px;
+            font-size: 16px;
+        }
+        /* --------first-row----------- */
+
+        /* --------Second-row----------- */
+  .secondrow {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            margin-left: 0;
+           gap: 0;
+            margin-top: 20px;
+        }
+        .seprate21 {
+            text-align: center;
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .seprate21 img{
+            max-width: 100%;
+          width: 100%;
+        }
+        .seprate21 p{
+            position: relative;
+            margin-top: 0px;
+            font-size: 16px;
+        }
+
+        .seprate22{
+            text-align: center;
+            position: relative;
+            margin-top: 20px;
+
+        }
+
+        .seprate22 img{
+            width: 100%;
+            max-width: 100%;
+        }
+        .seprate22 p{
+           position: relative;
+            margin-top: 0px;
+            font-size: 16px;
+        }
+
+        .seprate22 img{
+            margin-top: 0;
+
+        }
+
+
+
+        /* --------Second-row----------- */
+
+        /*------------third-row----------- */
+
+         .thirdrow {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            text-align: center;
+            margin-left: 0;
+                     margin-top: 20px;
+
+         
+        }
+        .seprate31 {
+            text-align: center;
+        width: 100%;
+        max-width: 100%;
+         position: relative;
+        }
+        .seprate31 p{
+            position: relative;
+            
+        }
+
+        .seprate31 img{
+                
+            width: 100%;
+            max-width: 100%;
+        }
+    
+
+        .seprate32 {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.seprate32 img{
+     width: 100%;
+     max-width: 100%;
+     display: block;
+}
+
+.center-text {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    
+    width: 90%;
+}
+
+
+        /*------------third-row----------- */
+        
+        /*------------fourth-row----------- */
+
+            .fourthrow {
+                display: flex;
+               
+                text-align: center;
+                
+                /* margin-top: 180px; */
+                margin-top: 20px;
+                /* margin-left: 250px; */
+                margin-left: 0;
+                
+            }
+            .seprate41 img{
+                text-align: center;
+               width: 100%;
+               
+               
+            }
+                .seprate2 h3 {
+        padding:  0px !important;
+    }
+
+
+  }
 
     </style>
 </head>
@@ -273,14 +764,14 @@
                 <div class="seprate1">
                     <img src="img_storyM-clinic.webp" alt=" img_storyM-clinic">
                     <h3>Open Family clinic</h3>
-                    <p> quia itaque cum maiores sunt natus reiciendis illo, vero quibusdam non praesentium? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, eaque. Natus eaque totam illo, ipsam maiores inventore quidem possimus. Magni quo animi, itaque a facere culpa labore nemo voluptatibus perferendis?</p>
+                    <p> Opened Family Clinic In 19XX, is placeholder text. This is placeholder text for this section. This is placeholder text. This is placeholder text for this section.</p>
                 </div>
 
               
 
                  <div class="seprate2">
                     <img src="tybwork 2.png" alt="tybwork">
-                       <h3>Open Family clinic</h3>
+                       <h3>Dr. Teddy Garcia Invents the El ephant Ear Washer</h3>
                     <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, eaque. Natus eaque totam illo, ipsam maiores inventore quidem possimus. Magni quo animi, itaque a facere culpa labore nemo voluptatibus perferendis?</p>
                 
                  </div>
@@ -294,15 +785,16 @@
                
                 <div class="seprate21">
                     <img src="img_storyM-homeuse.webp" alt=" img_storyM-clinic">
-                    <h3>Open Family clinic</h3>
-                    <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, eaque. Natus eaque totam illo, ipsam maiores inventore quidem possimus. Magni quo animi, itaque a facere culpa labore nemo voluptatibus perferendis?</p>
+                    <h3>Wax-Rx Home Use Option Launched</h3>
+                    <p>  
+Wax-Rx Home Use Option Launched In 19XX, is placeholder text. This is placeholder text for this section. This is placeholder text. This is placeholder text for this section.</p>
                 </div>
 
                
                  <div class="seprate22">
                     <img src="img_storyM-50milionuses.webp" alt="tybwork">
-                       <h3>Open Family clinic</h3>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, eaque. Natus eaque totam illo, ipsam maiores inventore quidem possimus. Magni quo animi, itaque a facere culpa labore nemo voluptatibus perferendis?</p>
+                       <h3>Placeholder Headline 19XX</h3>
+                    <p>Placeholder Headline 19XX This is placeholder text. This is placeholder text for this section. This is placeholder text. This is placeholder text for this section.</p>
                 
                  </div>
             </div>
@@ -315,8 +807,8 @@
                 
                 <div class="seprate31">
                     <img src="img_storyM-emily-video.webp" alt=" img_storyM-clinic">
-                    <h3>Open Family clinic</h3>
-                    <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, eaque. Natus eaque totam illo, ipsam maiores inventore quidem possimus. Magni quo animi, itaque a facere culpa labore nemo voluptatibus perferendis?</p>
+                    <h3>2023: Daughter Emily Garcia Placeholder Text</h3>
+                    <p>2023: Daughter Emily Garcia Placeholder Text In 19XX, this is placeholder text for this section. This is placeholder text. This is placeholder text for this section. This is placeholder text. This is placeholder text for this section. This is placeholder text.</p>
                 </div>
 
                 
@@ -324,9 +816,7 @@
     <img src="Group 1618873374.svg" alt="">
 
     <p class="center-text">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, eaque. 
-        Natus eaque totam illo, ipsam maiores inventore quidem possimus.Lorem ipsum dolor sit
-    </p>
+     This is placeholder text for this section. This is placeholder text. This is placeholder text for this section.</p>
     <h3>
         ...and beyond
     </h3>
