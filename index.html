@@ -5,6 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        .animate-path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  transition: stroke-dashoffset 2s ease;
+}
+
+/* When visible */
+.animate-path.visible {
+  stroke-dashoffset: 0;
+}
+
+/* Circles fade in */
+.animate-circle {
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+
+.animate-circle.visible {
+  opacity: 1;
+}
         .container {
             max-width: clamp(53.313rem, 82vw + 1rem, 100rem);
             margin: 0 auto;
@@ -179,9 +199,44 @@
     <section>
         <div class="container">
             
-            <div>
-                <img src="svggg 2.svg" alt="svg image" >
-            </div>
+                        <div>
+                                <!-- inlined SVG so JS/CSS can target internal elements for scroll-triggered animation -->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="1601" height="1959" viewBox="0 0 1601 1959">
+                                    <defs>
+                                        <style>
+                                            .cls-1, .cls-2 {
+                                                fill: none;
+                                                stroke: #27a9e1;
+                                                stroke-width: 3px;
+                                                fill-rule: evenodd;
+                                            }
+
+                                            .cls-2 {
+                                                stroke-linecap: round;
+                                            }
+
+                                            .cls-3 {
+                                                fill: #27a9e1;
+                                            }
+                                        </style>
+                                    </defs>
+                                    <path  id="Rectangle_857_copy" data-name="Rectangle 857 copy" class="cls-1  animate-path" d="M330,8l1239.46-.5a30.006,30.006,0,0,1,30,30v523a30.006,30.006,0,0,1-30,30L443,591"/>
+                                    <path id="Rectangle_857_copy_3" data-name="Rectangle 857 copy 3" class="cls-1 animate-path" d="M1119,1234l450.46-.5a30,30,0,0,1,30,30v663a30,30,0,0,1-30,30L1322,1957"/>
+                                    <path id="Rectangle_857_copy_2" data-name="Rectangle 857 copy 2" class="cls-1 animate-path" d="M1271,1233.5L32,1234a29.983,29.983,0,0,1-29.989-29.98V621.476A29.983,29.983,0,0,1,32,591.5l638-.5"/>
+                                    <path id="Rectangle_862_copy_2" data-name="Rectangle 862 copy 2" class="cls-2 animate-path" d="M1027,802H895a30,30,0,0,1-30-30V590"/>
+                                    <circle id="Ellipse_885_copy_3" data-name="Ellipse 885 copy 3" class="cls-3 animate-circle" cx="864.5" cy="590.5" r="7.5"/>
+                                    <circle id="Ellipse_885_copy_2" data-name="Ellipse 885 copy 2" class="cls-3 animate-circle" cx="1024.5" cy="801.5" r="7.5"/>
+                                    <path id="Rectangle_862_copy" data-name="Rectangle 862 copy" class="cls-2 animate-path" d="M187,802H88a30,30,0,0,1-30-30V590"/>
+                                    <circle class="cls-3" cx="57.5" cy="590.5" r="7.5"/>
+                                    <circle id="Ellipse_885_copy" data-name="Ellipse 885 copy" class="cls-3 animate-circle" cx="187.5" cy="801.5" r="7.5"/>
+                                    <path id="Rectangle_862_copy_3" data-name="Rectangle 862 copy 3" class="cls-2 animate-path" d="M168,1487H88a30,30,0,0,1-30-30V1233"/>
+                                    <circle id="Ellipse_885_copy_4" data-name="Ellipse 885 copy 4" class="cls-3 animate-circle" cx="57.5" cy="1233.5" r="7.5"/>
+                                    <circle id="Ellipse_885_copy_4-2" data-name="Ellipse 885 copy 4" class="cls-3 animate-circle" cx="169.5" cy="1486.5" r="7.5"/>
+                                    <path class="cls-2 animate-path" d="M852,257H708a30,30,0,0,1-30-30V7"/>
+                                    <circle class="cls-3" cx="677.5" cy="7.5" r="7.5"/>
+                                    <circle id="Ellipse_883_copy" data-name="Ellipse 883 copy" class="cls-3 animate-circle" cx="850.5" cy="256.5" r="7.5"/>
+                                </svg>
+                        </div>
             <!---------------1st row------------- -->
             <div class="firstrow">
                 <div class="seprate1">
@@ -276,7 +331,61 @@
 
     <div style="height: 100vh; background-color: aqua;"></div>
 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // flip this to true if you want the animation reversed (visible -> hidden on scroll)
+    const invert = false;
 
+    // initialize each path with its exact length and an initial offset
+    const paths = Array.from(document.querySelectorAll('.animate-path'));
+    paths.forEach((p, i) => {
+        const len = p.getTotalLength();
+        p.style.strokeDasharray = len;
+        // alternate direction: even index -> left-to-right, odd -> right-to-left
+        const startOffset = (i % 2 === 0) ? len : -len;
+        // store for later use
+        p.dataset.startOffset = startOffset;
+        p.dataset.len = len;
+        // if invert is true we start visible (offset 0) and will animate to startOffset on reveal
+        p.style.strokeDashoffset = invert ? 0 : startOffset;
+        p.style.transition = 'stroke-dashoffset 2s ease';
+    });
+
+    // initialize circles
+    const circles = document.querySelectorAll('.animate-circle');
+    circles.forEach(c => {
+        c.style.transition = 'opacity 1.2s ease';
+        c.style.opacity = invert ? 1 : 0; // if inverted, start visible
+        c.dataset.startOpacity = invert ? 0 : 1; // target opacity on reveal
+    });
+
+    // intersection observer triggers reveal
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                if (el.classList.contains('animate-path')) {
+                    const start = Number(el.dataset.startOffset || 0);
+                    if (invert) {
+                        // animate from 0 -> start (hide)
+                        el.style.strokeDashoffset = start;
+                    } else {
+                        // animate from start -> 0 (draw)
+                        el.style.strokeDashoffset = 0;
+                    }
+                } else if (el.classList.contains('animate-circle')) {
+                    el.style.opacity = el.dataset.startOpacity;
+                }
+                // mark and stop observing
+                el.classList.add('visible');
+                obs.unobserve(el);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.animate-path, .animate-circle').forEach(el => observer.observe(el));
+});
+</script>
 
 </body>
 </html>
